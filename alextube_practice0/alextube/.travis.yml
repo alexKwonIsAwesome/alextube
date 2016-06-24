@@ -1,0 +1,10 @@
+nguage: python
+python:
+    - "3.4"
+    - "3.5"
+install:
+    - pip install -r requirements/development.txt
+script:
+    - pep8 .
+notifications:
+      slack: alexkwon:zwmQuaKaz4kk5u7XDtDYHoma
