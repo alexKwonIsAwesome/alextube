@@ -1,3 +1,4 @@
 -r requirements.txt
 ipython[all]
 pep8
+django-debug-toolbar
