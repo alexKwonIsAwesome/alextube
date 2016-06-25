@@ -155,3 +155,5 @@ PIPELINE = {
 
 # Custom User model
 AUTH_USER_MODEL = "users.Users"
+
+LOGIN_URL = '/login/'
