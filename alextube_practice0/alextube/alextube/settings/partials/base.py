@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'pipeline',
+
     'users',
 ]
 
@@ -130,6 +132,26 @@ STATICFILES_DIRS = [
         ]
 
 STATIC_ROOT = os.path.join(PROJECT_ROOT_DIR, "dist", "static")
+
+STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'pipeline.finders.PipelineFinder',
+)
+
+PIPELINE = {
+    'STYLESHEETS': {
+        'alextube': {
+            'source_filenames': (
+              'css/application.css',
+              'css/partials/*.css',
+            ),
+            'output_filename': 'css/alextube.css',
+        }
+    }
+}
 
 # Custom User model
 AUTH_USER_MODEL = "users.Users"
