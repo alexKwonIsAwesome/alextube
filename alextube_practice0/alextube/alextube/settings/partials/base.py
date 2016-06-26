@@ -165,9 +165,14 @@ LOGIN_URL = '/login/'
 
 LOGIN_SUCCESS_MESSAGE="Welcome! You have successfully logged in"
 LOGIN_ERROR_MESSAGE="Sorry, something went wrong. Please try again."
-SIGNUP_SUCCESS_MESSAGE="Welcome! Thank you for singing up. Now you can login with your account you just created."
-LOGOUT_SUCCESS_MESSAGE="You are successfully logged out. Thanks for using and hope to see you again."
+SIGNUP_SUCCESS_MESSAGE="Welcome! Thank you for signing up. Now you can login with your account you just created."
+LOGOUT_SUCCESS_MESSAGE="You have successfully logged out. Thanks for visiting and hope to see you again."
 
 AUTHENTICATION_BACKENDS = [
+        "social.backends.facebook.FacebookOAuth2",
+
         "django.contrib.auth.backends.ModelBackend",
         ]
+
+SOCIAL_AUTH_FACEBOOK_KEY = '1560950074207034'
+SOCIAL_AUTH_FACEBOOK_SECRET = '41038be3ad2bfb2e18a49ee26fb9750b'
