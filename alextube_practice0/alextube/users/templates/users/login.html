@@ -12,4 +12,15 @@
 	<input type="submit" value="Login">
 </form>
 </section>
+
+<section>
+	<ul>
+		<li>
+			<a href="{% url "social:begin" backend="facebook" %}">Login with Facebook</a>
+		</li>
+		<li>
+			<a href="{% url "social:begin" backend="kakao" %}">Login with Kakaotalk</a>
+		</li>
+	</ul>
+</section>
 {% endblock %}
