@@ -18,7 +18,7 @@ class LoginView(View):
         username = request.POST.get("username")
         password = request.POST.get("password")
 
-        next_url =  request.POST.get("next_url") or reverse("login")
+        next_url =  request.POST.get("next_url") or reverse("users:login")
 
         user = authenticate(
                 username=username,
@@ -39,4 +39,4 @@ class LoginView(View):
                 messages.ERROR,
                 settings.LOGINT_ERROR_MESSAGE,
         )
-        return redirect(reverse("login"))
+        return redirect(reverse("users.login"))
