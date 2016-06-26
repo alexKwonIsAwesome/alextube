@@ -56,7 +56,6 @@ MIDDLEWARE_CLASSES = [
 ]
 
 ROOT_URLCONF = 'alextube.urls'
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -157,3 +156,10 @@ PIPELINE = {
 AUTH_USER_MODEL = "users.Users"
 
 LOGIN_URL = '/login/'
+
+# messages snippet
+
+LOGIN_SUCCESS_MESSAGE="Welcome! You have successfully logged in"
+LOGIN_ERROR_MESSAGE="Sorry, something went wrong. Please try again."
+SIGNUP_SUCCESS_MESSAGE="Welcome! Thank you for singing up. Now you can login with your account you just created."
+LOGOUT_SUCCESS_MESSAGE="You are successfully logged out. Thanks for using and hope to see you again."
