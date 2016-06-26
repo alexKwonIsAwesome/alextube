@@ -37,6 +37,6 @@ class LoginView(View):
         messages.add_message(
                 request,
                 messages.ERROR,
-                settings.LOGINT_ERROR_MESSAGE,
+                settings.LOGIN_ERROR_MESSAGE,
         )
-        return redirect(reverse("users.login"))
+        return redirect(reverse("users:login"))
