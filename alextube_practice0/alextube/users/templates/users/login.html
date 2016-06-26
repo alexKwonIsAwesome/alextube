@@ -4,7 +4,7 @@
 {% block content %}
 <h1>Login</h1>
 <section>
-<form action="{% url "login" %}" method="POST">
+<form action="{% url "users:login" %}" method="POST">
         {% csrf_token %}
         <input type="hidden" name="next_url" value="{{ request.GET.next }}">
 	<input type="text" name="username" placeholder="username" required>
