@@ -3,6 +3,7 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth import logout
 from django.contrib import messages
 from django.shortcuts import redirect
+from django.conf import settings
 
 
 class LogoutView(View):
@@ -12,6 +13,6 @@ class LogoutView(View):
         messages.add_message(
                 request,
                 messages.SUCCESS,
-                "You are successfully logged out. Thanks for using and hope to see you again."
+                settings.LOGOUT_SUCCESS_MESSAGE,
         )
         return redirect(reverse("login"))
