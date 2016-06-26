@@ -174,5 +174,20 @@ AUTHENTICATION_BACKENDS = [
         "django.contrib.auth.backends.ModelBackend",
         ]
 
-SOCIAL_AUTH_FACEBOOK_KEY = '1560950074207034'
-SOCIAL_AUTH_FACEBOOK_SECRET = '41038be3ad2bfb2e18a49ee26fb9750b'
+SOCIAL_AUTH_FACEBOOK_KEY = "1560950074207034"
+SOCIAL_AUTH_FACEBOOK_SECRET = "41038be3ad2bfb2e18a49ee26fb9750b"
+
+SOCIAL_AUTH_PIPELINE = (
+    'social.pipeline.social_auth.social_details',
+    'social.pipeline.social_auth.social_uid',
+    'social.pipeline.social_auth.auth_allowed',
+    'social.pipeline.social_auth.social_user',
+    'social.pipeline.user.get_username',
+    'social.pipeline.social_auth.associate_by_email',
+    'social.pipeline.user.create_user',
+    'social.pipeline.social_auth.associate_user',
+    'social.pipeline.social_auth.load_extra_data',
+    'social.pipeline.user.user_details'
+)
+
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = "/login/"
