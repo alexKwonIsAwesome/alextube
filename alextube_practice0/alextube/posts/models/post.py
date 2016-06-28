@@ -23,14 +23,16 @@ class Post(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    
-    def get_youtube_original_url(self):
-        return "https://www.youtube.com/watch?v={video_id}".format(
-                video_id=self.video_id,
-                )
-    youtube_original_url = property(get_youtube_original_url)
+  
+    def get_youtube_embed_url(self):
+        from posts.utils import get_youtube_embed_url as get_youtube_embed_url_from_video_id
+        return get_youtube_embed_url_from_video_id(self.video_id)
+    youtube_embed_url = property(get_youtube_embed_url)
 
+    def get_youtube_original_url(self):
+        from posts.utils import get_youtube_original_url as get_youtube_original_url_from_video_id
+        return get_youtube_original_url_from_video_id(self.video_id)
+    youtube_original_url = property(get_youtube_original_url)
+   
     def __str__(self):
         return self.title
-
-
