@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h1>Confirm Post</h1>
+
+<iframe src="{{ youtube_embed_url }}"></iframe>
+<h3>{{ title }}</h3>
+<p>{{ content }}</p>
+
+<a href="{{ youtube_original_url }}" target="_blank">Watch this video at Youtube</a>
+
+<form action="" method="POST">
+	<p> Do you want to post with this content? </p>
+	<input type="submit" name="Confirm and Post">
+</form>
+
+{% endblock %}
