@@ -26,11 +26,20 @@ class PostModelTest(TestCase):
         The Post model should be able to create youtube original url
         with the given youtube hash form video_id
         """
+        
+        youtube_original_url = "https://www.youtube.com/watch?v={post_video_id}".format(post_video_id=self.post_video_id)
+
+
         self.assertEqual(
                 self.post.get_youtube_original_url(),
-                "https://www.youtube.com/watch?v={post_video_id}".format(
-                    post_video_id=self.post_video_id,
-                ),
+                youtube_original_url,
+                
+        )
+        
+        self.assertEqual(
+                self.post.youtube_original_url,
+                youtube_original_url,
+                
         )
 
 
