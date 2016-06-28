@@ -1,0 +1,7 @@
+from django.conf.urls import url
+
+from posts.views import *
+
+urlpatterns = [
+        url(r'^new/$', PostCreateView.as_view(), name="new"),
+        ]
