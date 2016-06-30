@@ -2,8 +2,9 @@ from django.views.generic import View
 from django.core.urlresolvers import reverse
 from django.shortcuts import render, redirect
 from posts.utils import youtube
+from users.models import Users
 
-class PostCreateFormView(View): 
+class PostCreateView(View): 
 
     def get(self, request, *args, **kwargs):
         return render(
@@ -11,6 +12,19 @@ class PostCreateFormView(View):
                 "posts/new.html",
                 context={},
         )
+
+    def post(self, request, *args, **kwargs):
+        title = request.POST.get("title")
+        content = request.POST.get("content")
+        video_id = request.POST.get("video_id")
+
+        post = request.user.post_set.create(
+                title=title,
+                content=content,
+                video_id=video_id,
+        )
+
+        return redirect(reverse("posts:create"))
 
 
 class PostCreateConfirmView(View):

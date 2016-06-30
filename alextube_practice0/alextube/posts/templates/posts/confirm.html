@@ -10,9 +10,14 @@
 
 <a href="{{ youtube_original_url }}" target="_blank">Watch this video at Youtube</a>
 
-<form action="" method="POST">
+<form action="{% url "posts:create" %}" method="POST">
 	<p> Do you want to post with this content? </p>
+	{% csrf_token %}
+	<input type="hidden" name="title" value="{{ title }}">
+	<input type="hidden" name="video_id" value="{{ video_id }}">
+	<input type="hidden" name="content" value="{{ content }}">
 	<input type="submit" name="Confirm and Post">
+
 </form>
 
 {% endblock %}
